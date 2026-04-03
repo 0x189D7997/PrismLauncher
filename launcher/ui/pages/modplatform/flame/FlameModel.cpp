@@ -178,7 +178,7 @@ void ListModel::performPaginatedSearch()
             };
             auto project = std::make_shared<ModPlatform::IndexedPack>();
             project->addonId = projectId;
-            if (auto job = api.getProjectInfo({ project }, std::move(callbacks)); job) {
+            if (auto job = api.getProjectInfo({ project }, std::move(callbacks), false); job) {
                 m_jobPtr = job;
                 m_jobPtr->start();
             }
@@ -252,9 +252,9 @@ void Flame::ListModel::searchRequestForOneSucceeded(ModPlatform::IndexedPack::Pt
 {
     m_jobPtr.reset();
 
-    beginInsertRows(QModelIndex(), m_modpacks.size(), m_modpacks.size() + 1);
-    m_modpacks.append(pack);
-    endInsertRows();
+        beginInsertRows(QModelIndex(), m_modpacks.size(), m_modpacks.size() + 1);
+        m_modpacks.append(pack);
+        endInsertRows();
 }
 
 void Flame::ListModel::searchRequestFailed(QString reason)
