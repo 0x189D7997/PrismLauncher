@@ -111,9 +111,9 @@ Task::Ptr ResourceAPI::getProjectVersions(VersionSearchArgs&& args, Callback<QVe
                 }
 
                 if (file.fileId.isValid() && !file.downloadUrl.isEmpty()) {  // Heuristic to check if the returned value is valid
-                        unsortedVersions.append(file);
-                    }
+                    unsortedVersions.append(file);
                 }
+            }
 
             auto orderSortPredicate = [](const ModPlatform::IndexedVersion& a, const ModPlatform::IndexedVersion& b) -> bool {
                 // dates are in RFC 3339 format
