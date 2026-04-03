@@ -255,9 +255,9 @@ void Flame::ListModel::searchRequestForOneSucceeded(ModPlatform::IndexedPack::Pt
 {
     m_jobPtr.reset();
 
-        beginInsertRows(QModelIndex(), m_modpacks.size(), m_modpacks.size() + 1);
-        m_modpacks.append(pack);
-        endInsertRows();
+    beginInsertRows(QModelIndex(), m_modpacks.size(), m_modpacks.size() + 1);
+    m_modpacks.append(pack);
+    endInsertRows();
 }
 
 void Flame::ListModel::searchRequestFailed(QString reason)
